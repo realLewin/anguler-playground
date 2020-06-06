@@ -3,33 +3,35 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
 
-import { AppRouters } from './app.routes';
+import { PagesModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PagesComponent } from './pages/pages.component';
-import { WelcomeComponent } from './pages/main-page/welcome/welcome.component';
-import { DashboardComponent } from './pages/main-page/dashboard/dashboard.component';
-import { DataService } from './data.service';
-import { MainPageModule } from './pages/main-page/main-page.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PagesComponent,
-    WelcomeComponent,
-    DashboardComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    ToastrModule,
     AppMaterialModule,
     FlexLayoutModule,
-    AppRouters,
-    MainPageModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    AppRoutingModule,
+    PagesModule,
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

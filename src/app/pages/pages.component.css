@@ -1,30 +1,4 @@
-/* .root {
-  background-color: lightblue;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-.sign-in-form {
-  background-color: lightcoral;
-  align-items: center;
-  width: 33%;
-  height: max-content;
-} */
-.signin-form {
-  width: 33%;
-}
-.signin-input {
-  margin-top: 2em;
-  width: 100%;
-}
-.signin-icon {
-  margin-top: 4em;
-}
-.signin-button {
-  width: 100%;
-}
-
-mat-sidenav-container,
+/* mat-sidenav-container,
 mat-sidenav-content,
 mat-sidenav {
   height: 100%;
@@ -66,4 +40,4 @@ a:active {
   line-height: 30px;
   margin: 0;
   width: 85%;
-}
+} */

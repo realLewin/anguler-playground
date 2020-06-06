@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridList } from 'src/app/core/data/grid-list';
+import { GridList } from 'src/app/core/data/list.model';
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
