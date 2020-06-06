@@ -15,6 +15,7 @@ import { SettingModule } from './setting/setting.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { SigninModule } from './signin/signin.module';
 import { SignupModule } from './signup/signup.module';
+import { CrudTestModule } from './crud-test/crud-test.module';
 @NgModule({
   declarations: [PagesComponent],
   imports: [
@@ -33,6 +34,7 @@ import { SignupModule } from './signup/signup.module';
     NotificationsModule,
     SigninModule,
     SignupModule,
+    CrudTestModule,
   ],
   exports: [PagesComponent],
 })

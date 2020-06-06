@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpTestService } from './http-test.service';
+import { CrudDeleteService } from './crud-delete.service';
 
-describe('HttpTestService', () => {
-  let service: HttpTestService;
+describe('CrudDeleteService', () => {
+  let service: CrudDeleteService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HttpTestService);
+    service = TestBed.inject(CrudDeleteService);
   });
 
   it('should be created', () => {
