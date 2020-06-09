@@ -1,1 +1,37 @@
-<p>post-test works!</p>
+<div>
+  <div fxLayout="column" fxLayoutAlign="center">
+    <div fxLayout="column" fxLayoutAlign="center">
+      <mat-form-field appearance="outline">
+        <mat-label>name</mat-label>
+        <input matInput placeholder="name" [(ngModel)]="user.name" />
+        <mat-icon matSuffix>done</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <button mat-stroked-button color="primary" (click)="handlePost()">
+        Post
+      </button>
+    </div>
+    <div>
+      <input type="file" multiple (change)="uploadFile($event)" />
+    </div>
+    <!-- get user input from $event object.(not recommand in this situation) -->
+    <div>
+      <input (keyup)="handleKeyup1($event)" />
+      <p>you pressed: {{ value1 }}</p>
+    </div>
+    <!-- get user input from a template reference variable. #define the template variable. -->
+    <div>
+      <input #box1 (keyup)="handleKeyup2(box1.value)" />
+      <p>you pressed: {{ value2 }}</p>
+    </div>
+    <!-- key event filtering -->
+    <div>
+      <input
+        #box2
+        (keyup.enter)="handleOnenter(box2.value)"
+        (blur)="handleOnenter(box2.value)"
+      />
+      <p>your input: {{ value3 }}</p>
+    </div>
+  </div>
+</div>

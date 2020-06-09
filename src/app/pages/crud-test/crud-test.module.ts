@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CrudRoutingModule } from './crud-routing.module';
@@ -22,6 +23,7 @@ import { CrudTestComponent } from './crud-test.component';
     CrudRoutingModule,
     FlexLayoutModule,
     AppMaterialModule,
+    FormsModule,
   ],
 })
 export class CrudTestModule {}

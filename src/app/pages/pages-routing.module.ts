@@ -4,16 +4,25 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SigninComponent } from './signin/signin.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { CrudTestComponent } from './crud-test/crud-test.component';
 
 const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'main-page', component: MainPageComponent },
-  // { path: 'test-mode', component: CrudTestComponent },
+  {
+    path: 'auth',
+    loadChildren: () => import(`./auth/auth.module`).then((m) => m.AuthModule),
+  },
   {
     path: 'test-mode',
     loadChildren: () =>
       import(`./crud-test/crud-test.module`).then((m) => m.CrudTestModule),
+  },
+  {
+    path: 'doc',
+    loadChildren: () =>
+      import(`./angular-doc/angular-doc.module`).then(
+        (m) => m.AngularDocModule
+      ),
   },
   { path: '**', component: SigninComponent },
 ];
