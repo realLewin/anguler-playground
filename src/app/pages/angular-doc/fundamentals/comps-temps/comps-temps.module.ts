@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppMaterialModule } from 'src/app/app-material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 import { CompsTempsRoutingModule } from './comps-temps-routing.module';
 import { CompsTempsComponent } from './comps-temps.component';
@@ -14,13 +17,34 @@ import { ComponentStyleComponent } from './component-style/component-style.compo
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 import { ElementsComponent } from './elements/elements.component';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
-
+import { ChildComponent } from './template-syntax/child/child.component';
+import { ItemDetailComponent } from './template-syntax/item-detail/item-detail.component';
+import { SizerComponent } from './template-syntax/sizer/sizer.component';
 
 @NgModule({
-  declarations: [CompsTempsComponent, DisplayDataComponent, TemplateSyntaxComponent, UserInputComponent, AttributeDirectivesComponent, PipesComponent, HookComponent, ComponentInteractionComponent, ComponentStyleComponent, DynamicComponentComponent, ElementsComponent, StructuralDirectivesComponent],
+  declarations: [
+    CompsTempsComponent,
+    DisplayDataComponent,
+    TemplateSyntaxComponent,
+    UserInputComponent,
+    AttributeDirectivesComponent,
+    PipesComponent,
+    HookComponent,
+    ComponentInteractionComponent,
+    ComponentStyleComponent,
+    DynamicComponentComponent,
+    ElementsComponent,
+    StructuralDirectivesComponent,
+    ChildComponent,
+    ItemDetailComponent,
+    SizerComponent,
+  ],
   imports: [
     CommonModule,
-    CompsTempsRoutingModule
-  ]
+    CompsTempsRoutingModule,
+    AppMaterialModule,
+    FlexLayoutModule,
+    FormsModule,
+  ],
 })
-export class CompsTempsModule { }
+export class CompsTempsModule {}

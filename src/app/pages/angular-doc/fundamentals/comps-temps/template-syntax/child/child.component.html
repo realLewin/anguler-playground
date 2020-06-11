@@ -1,0 +1,8 @@
+<div>
+  <h2>Your item is: {{ childItem }}</h2>
+  <h3 *ngFor="let item of childItemObject">
+    You item: {{ item.name }}'s id is: {{ item.id }}
+  </h3>
+  <input #emitInput placeholder="something to emit..." />
+  <button (click)="emitEvent(emitInput.value)">emit event</button>
+</div>
