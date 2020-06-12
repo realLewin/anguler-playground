@@ -1,1 +1,104 @@
-<p>user-input works!</p>
+<div>
+  <!---------------------------------- binding to user input event ------------------------------->
+  <div>
+    <!-- You can use Angular event bindings to respond to any DOM event -->
+    <!-- To bind to a DOM event, surround the DOM event name in parentheses 
+         and assign a quoted template statement to it. -->
+    <button (click)="handleClick()">click me</button>
+  </div>
+  <!------------------------------get user input from $event object ------------------------------->
+  <div>
+    <!-- All standard DOM event objects have a target property, a reference to the element 
+         that raised the event. In this case, target refers to the <input> element and event.
+         target.value returns the current contents of that element. -->
+    <!-- Passing $event is a dubious practice -->
+    <!-- Typing the event object reveals a significant objection to passing the entire DOM 
+         event into the method: the component has too much awareness of the template details. 
+         It can't extract information without knowing more than it should about the HTML implementation. 
+         That breaks the separation of concerns between the template (what the user sees) and the 
+         component (how the application processes user data).-->
+    <label for="userInput"
+      >Type here v1 with keyup event
+      <input (keyup)="handleKeyupV1($event)" />
+    </label>
+    <p>Your input is: {{ inputValue1 }}</p>
+    <p>Your press the key: {{ inputKeyValue1 }}</p>
+  </div>
+  <!------------------------- Get user input from a template reference variable ----------------------->
+  <div>
+    <!-- These variables provide direct access to an element from within the template. -->
+    <!-- This won't work at all unless you bind to an event. -->
+    <!-- Angular updates the bindings (and therefore the screen) only if the app does 
+         something in response to asynchronous events, such as keystrokes. This example code 
+         binds the keyup event to the number 0, the shortest template statement possible. 
+         While the statement does nothing useful, it satisfies Angular's requirement so that
+         Angular will update the screen. -->
+    <label
+      >type here v2 with template variable
+      <input #userinput2 (keyup)="(0)" />
+    </label>
+    <p>Your input is: {{ userinput2.value }}</p>
+    <!-- rewrite the privously example -->
+    <label
+      >type here v3 with passing template variable to component function
+      <input #userinput3 (keyup)="handleKeyupV3(userinput3.value)" />
+    </label>
+    <p>Your input is: {{ inputValue3 }}</p>
+  </div>
+  <!------------------------------------- key event filtering ---------------------------------------->
+  <div>
+    <!-- The (keyup) event handler hears every keystroke. Sometimes only the Enter key matters, -->
+    <!-- One way to reduce the noise would be to examine every $event.keyCode and take action only 
+         when the key is Enter. -->
+    <!-- There's an easier way: bind to Angular's keyup.enter pseudo-event. Then Angular calls the 
+         event handler only when the user presses Enter. -->
+    <label
+      >type here v4 with key event filtering
+      <input #userinput4 (keyup.enter)="handleKeyupV4(userinput4.value)" />
+    </label>
+    <p>Your input is: {{ inputValue4 }}</p>
+  </div>
+  <!------------------------------------------ on blur ---------------------------------------------->
+  <div>
+    <!-- In the previous example, the current state of the input box is lost if the user mouses 
+         away and clicks elsewhere on the page without first pressing Enter. The component's 
+         value property is updated only when the user presses Enter. -->
+    <!-- To fix this issue, listen to both the Enter key and the blur event. -->
+    <label
+      >type here v5 with key event filtering and blur
+      <input
+        #userinput5
+        (keyup.enter)="handleKeyupV4(userinput5.value)"
+        (blur)="handleKeyupV4(userinput5.value)"
+      />
+    </label>
+    <p>Your input is: {{ inputValue4 }}</p>
+  </div>
+  <!--------------------------------------put it all together --------------------------------------->
+  <div>
+    <!-- micro app to add hero to list when click add button -->
+    <label
+      >Type your hero:
+      <input
+        #userInput6
+        (keyup.enter)="handleClickV6(userInput6.value)"
+        (blur)="handleClickV6(userInput6.value); userInput6.value = ''"
+        placeholder="your heros here..."
+      />
+    </label>
+    <button (click)="handleClickV6(userInput6.value)">add</button>
+    <ul>
+      <li *ngFor="let hero of inputValue6">{{ hero }}</li>
+    </ul>
+  </div>
+  <!------------------------------------------ observations ----------------------------------------->
+  <div>
+    <!-- Use template variables to refer to elements -->
+    <!-- Pass values, not elements -->
+    <!-- Keep template statements simple -->
+  </div>
+  <!-- Angular also supports passive event listeners ?? confused -->
+  <!-- These techniques are useful for small-scale demonstrations, but they quickly become 
+       verbose and clumsy when handling large amounts of user input. Two-way data binding is a 
+       more elegant and compact way to move values between data entry fields and model properties. -->
+</div>
