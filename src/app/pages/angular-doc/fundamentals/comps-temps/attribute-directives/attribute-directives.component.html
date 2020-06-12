@@ -1,1 +1,65 @@
-<p>attribute-directives works!</p>
+<!-- An Attribute directive changes the appearance or behavior of a DOM element. -->
+<!-- There are three kinds of directives in Angular: -->
+<!-- Components—directives with a template. -->
+<!-- Structural directives—change the DOM layout by adding and removing DOM elements. -->
+<!-- Attribute directives—change the appearance or behavior of an element, component, or another directive. -->
+<div>
+  <!------------------------------- build a simple attribute directive -------------------------------->
+  <div>
+    <!-- An attribute directive minimally requires building a controller class annotated with 
+         @Directive, which specifies the selector that identifies the attribute. The controller 
+         class implements the desired directive behavior. -->
+    <!-- Please note that directives do not support namespaces -->
+    <!-- Directives must be declared in Angular Modules in the same manner as components. -->
+    <p appHighLight>text with simple attribute directives</p>
+  </div>
+  <!-------------------------------- Respond to user-initiated events ----------------------------------->
+  <div>
+    <p appHighLight>text with dynamic attribute directive</p>
+  </div>
+  <!-------------------- Pass values into the directive with an @Input data binding --------------------->
+  <div>
+    <!-- binding to an @input property: -->
+    <p appHighLight [highlightColor1]="color">
+      text with direct property binding
+    </p>
+    <!-- binding to an @input alias property: -->
+    <p [appHighLight]="color">text with alias binding</p>
+  </div>
+  <!----------------------------------- write a harness to try it --------------------------------------->
+  <div>
+    <div>
+      <input type="radio" name="colors" (click)="color = 'cyan'" />cyan
+      <input type="radio" name="colors" (click)="color = 'pink'" />pink
+      <input type="radio" name="colors" (click)="color = 'yellow'" />yellow
+    </div>
+    <p [appHighLight]="color">You choosed color: {{ color }}</p>
+  </div>
+  <!----------------------------------- bind to a second property --------------------------------------->
+  <div>
+    <p appHighLight>text with no color set</p>
+    <p appHighLight defaultColor="violet">text with default color only</p>
+    <p [appHighLight]="'pink'" defaultColor="violet">text with all color set</p>
+  </div>
+  <div>
+    <!--the @Input decorator tells Angular that this property is public and available for binding by 
+        a parent component. Without @Input, Angular refuses to bind to the property.
+        You've bound template HTML to component properties before and never used @Input. 
+        What's different?
+        The difference is a matter of trust. Angular treats a component's template as belonging 
+        to the component. The component and its template trust each other implicitly. Therefore, 
+        the component's own template may bind to any property of that component, with or without 
+        the @Input decorator.
+        But a component or directive shouldn't blindly trust other components and directives. 
+        The properties of a component or directive are hidden from binding by default. 
+        They are private from an Angular binding perspective. When adorned with the @Input decorator, 
+        the property becomes public from an Angular binding perspective. Only then can it be bound by 
+        some other component or directive.
+        You can tell if @Input is needed by the position of the property name in a binding.
+        When it appears in the template expression to the right of the equals (=), it belongs to 
+        the template's component and does not require the @Input decorator.
+        When it appears in square brackets ([ ]) to the left of the equals (=), 
+        the property belongs to some other component or directive; that property must be adorned 
+        with the @Input decorator. -->
+  </div>
+</div>

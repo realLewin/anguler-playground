@@ -20,6 +20,7 @@ import { StructuralDirectivesComponent } from './structural-directives/structura
 import { ChildComponent } from './template-syntax/child/child.component';
 import { ItemDetailComponent } from './template-syntax/item-detail/item-detail.component';
 import { SizerComponent } from './template-syntax/sizer/sizer.component';
+import { HighLightDirective } from './attribute-directives/high-light.directive';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SizerComponent } from './template-syntax/sizer/sizer.component';
     ChildComponent,
     ItemDetailComponent,
     SizerComponent,
+    HighLightDirective,
   ],
   imports: [
     CommonModule,
