@@ -22,6 +22,7 @@ import { ItemDetailComponent } from './template-syntax/item-detail/item-detail.c
 import { SizerComponent } from './template-syntax/sizer/sizer.component';
 import { HighLightDirective } from './attribute-directives/high-light.directive';
 import { UnlessDirective } from './structural-directives/unless.directive';
+import { ExponentialStrengthPipe } from './pipes/exponetial-strength.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UnlessDirective } from './structural-directives/unless.directive';
     SizerComponent,
     HighLightDirective,
     UnlessDirective,
+    ExponentialStrengthPipe,
   ],
   imports: [
     CommonModule,

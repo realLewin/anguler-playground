@@ -6,6 +6,7 @@ import { TemplateSyntaxComponent } from './template-syntax/template-syntax.compo
 import { UserInputComponent } from './user-input/user-input.component';
 import { AttributeDirectivesComponent } from './attribute-directives/attribute-directives.component';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
         path: 'structural-directives',
         component: StructuralDirectivesComponent,
       },
+      { path: 'pipes', component: PipesComponent },
     ],
   },
 ];

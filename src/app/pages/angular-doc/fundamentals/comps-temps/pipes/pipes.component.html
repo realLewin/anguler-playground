@@ -1,1 +1,64 @@
-<p>pipes works!</p>
+<!-- Introducing Angular pipes, a way to write display-value transformations that you can 
+     declare in your HTML. -->
+<!-- Pipes are a great way to encapsulate and share common display-value transformations. 
+     Use them like styles, dropping them into your template's expressions to enrich the appeal 
+     and usability of your views. -->
+<div>
+  <!------------------------------------ using pipes ------------------------------------------>
+  <div>
+    <!-- A pipe takes in data as input and transforms it to a desired output. -->
+    <p>your birthday: {{ birthday | date }}</p>
+  </div>
+  <!------------------------------------build-in pipes ---------------------------------------->
+  <div>
+    <!-- Angular comes with a stock of pipes such as DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, 
+         and PercentPipe. They are all available for use in any template. -->
+  </div>
+  <!--------------------------------- parameterizing a pipe ----------------------------------->
+  <div>
+    <!-- A pipe can accept any number of optional parameters to fine-tune its output. 
+         To add parameters to a pipe, follow the pipe name with a colon ( : ) and then 
+         the parameter value (such as currency:'EUR'). If the pipe accepts multiple parameters, 
+         separate the values with colons (such as slice:1:5) -->
+    <p>Your birthday with parameter pipe: {{ birthday | date: "MM/dd/yy" }}</p>
+    <!-- The parameter value can be any valid template expression, -->
+    <!-- such as a string literal or a component property. In other words, you can control 
+         the format through a binding the same way you control the birthday value through a binding.-->
+    <p>Your birthday is: {{ birthday | date: format }}</p>
+    <button mat-stroked-button (click)="toggleFormat()">toggle format</button>
+    <!-- Read more about the DatePipe format options in the Date Pipe API Reference page. -->
+  </div>
+  <!------------------------------------ chaining pipes --------------------------------------->
+  <div>
+    <!-- You can chain pipes together in potentially useful combinations. -->
+    <p>
+      Your birthday with chaining pipes:
+      {{ birthday | date: "fullDate" | uppercase }}
+    </p>
+  </div>
+  <!--------------------------------------custom pipes ---------------------------------------->
+  <div>
+    <!-- You can write your own custom pipes. -->
+    <p>
+      Your number with exponential 5: {{ baseNumber | exponentialStrength: 5 }}
+    </p>
+  </div>
+  <!--------------------------------pipes and change detection -------------------------------->
+  <div>
+    <!-- Angular looks for changes to data-bound values through a change detection process 
+         that runs after every DOM event: every keystroke, mouse move, timer tick, and server 
+         response. This could be expensive. Angular strives to lower the cost whenever possible 
+         and appropriate. -->
+    <!-- Angular picks a simpler, faster change detection algorithm when you use a pipe. -->
+    <!------------ no pipe: refer doc for more info... -->
+    <!------------ flying hero pipe: refer doc for more info... -->
+  </div>
+  <!----------------------------------pure and impure pipes ----------------------------------->
+  <div>
+    <!-- There are two categories of pipes: pure and impure. Pipes are pure by default. 
+         Every pipe you've seen so far has been pure. You make a pipe impure by setting its pure 
+         flag to false. -->
+    <!-- refer doc for more info... -->
+    <!-- The Angular AsyncPipe is an interesting example of an impure pipe. -->
+  </div>
+</div>
