@@ -5,6 +5,7 @@ import { DisplayDataComponent } from './display-data/display-data.component';
 import { TemplateSyntaxComponent } from './template-syntax/template-syntax.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { AttributeDirectivesComponent } from './attribute-directives/attribute-directives.component';
+import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
       { path: 'template-syntax', component: TemplateSyntaxComponent },
       { path: 'user-input', component: UserInputComponent },
       { path: 'attribute-directives', component: AttributeDirectivesComponent },
+      {
+        path: 'structural-directives',
+        component: StructuralDirectivesComponent,
+      },
     ],
   },
 ];

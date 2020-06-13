@@ -21,6 +21,7 @@ import { ChildComponent } from './template-syntax/child/child.component';
 import { ItemDetailComponent } from './template-syntax/item-detail/item-detail.component';
 import { SizerComponent } from './template-syntax/sizer/sizer.component';
 import { HighLightDirective } from './attribute-directives/high-light.directive';
+import { UnlessDirective } from './structural-directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { HighLightDirective } from './attribute-directives/high-light.directive'
     ItemDetailComponent,
     SizerComponent,
     HighLightDirective,
+    UnlessDirective,
   ],
   imports: [
     CommonModule,
