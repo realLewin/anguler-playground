@@ -7,6 +7,7 @@ import { UserInputComponent } from './user-input/user-input.component';
 import { AttributeDirectivesComponent } from './attribute-directives/attribute-directives.component';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { HookComponent } from './hook/hook.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
         component: StructuralDirectivesComponent,
       },
       { path: 'pipes', component: PipesComponent },
+      { path: 'hook', component: HookComponent },
     ],
   },
 ];

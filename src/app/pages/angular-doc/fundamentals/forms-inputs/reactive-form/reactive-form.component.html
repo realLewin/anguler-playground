@@ -1,0 +1,58 @@
+<!-- Reactive forms provide a model-driven approach to handling form inputs whose 
+     values change over time. -->
+<div>
+  <!------------- basic form control -->
+  <div>
+    <label>
+      name:
+      <input type="text" [formControl]="name" />
+    </label>
+    <p>value accessing from value property: {{ name.value }}</p>
+    <p>value update via setValue() method: {{ name.value }}</p>
+    <button (click)="updateName()">update name</button>
+  </div>
+  <!------------- use FormGroup and creating nested form groups:-->
+  <div>
+    <form [formGroup]="userProfile" (ngSubmit)="onSubmit()">
+      <label
+        >first name:
+        <input type="text" formControlName="firstName" required />
+      </label>
+      <label
+        >last name:
+        <input type="text" formControlName="lastName" />
+      </label>
+      <!-- <button mat-stroked-button type="submit" [disabled]="!userProfile.valid">
+        submit
+      </button> -->
+      <div formGroupName="address">
+        <label
+          >street:
+          <input type="text" formControlName="street" />
+        </label>
+        <label
+          >city:
+          <input type="text" formControlName="city" />
+        </label>
+        <label
+          >street:
+          <input type="zipcode" formControlName="zipCode" />
+        </label>
+      </div>
+      <div formArrayName="aliases">
+        <h3>Aliases:</h3>
+        <button (click)="addAliases()">Add alias</button>
+        <div *ngFor="let alias of aliases.controls; let i = index">
+          <label
+            >alias {{ i }}
+            <input type="text" [formControlName]="i" />
+          </label>
+        </div>
+      </div>
+      <button mat-stroked-button (click)="updateForm()">Update Form</button>
+      <button mat-stroked-button type="submit" [disabled]="!userProfile.valid">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
