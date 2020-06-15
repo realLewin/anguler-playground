@@ -1,1 +1,4 @@
-<p>di works!</p>
+<button mat-stroked-button (click)="logItems()">Log item</button>
+<ng-container *ngFor="let item of items">
+  <p>Your item are: {{ item.name }}</p>
+</ng-container>

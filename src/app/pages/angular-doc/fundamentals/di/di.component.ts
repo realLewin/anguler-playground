@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../services/item.service';
+import { Item } from '../model/item';
 
 @Component({
   selector: 'app-di',
   templateUrl: './di.component.html',
-  styleUrls: ['./di.component.css']
+  styleUrls: ['./di.component.css'],
 })
-export class DiComponent implements OnInit {
+export class DiComponent {
+  items: Item[];
 
-  constructor() { }
+  constructor(private item: ItemService) {}
 
-  ngOnInit(): void {
+  logItems() {
+    this.items = this.item.getItems();
   }
-
 }
