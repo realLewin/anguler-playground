@@ -1,0 +1,20 @@
+<div>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="submitForm()"
+    fxLayout="column"
+    fxLayoutAlign="center"
+    class="login-form"
+  >
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="account" type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="password" type="text" />
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button type="submit">Log in</button>
+      <button mat-stroked-button>Sign up</button>
+    </div>
+  </form>
+</div>

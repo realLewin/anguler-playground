@@ -4,8 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SigninComponent } from './signin/signin.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { PagesComponent } from './pages.component';
 
 const routes: Routes = [
+  { path: '', component: PagesComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'main-page', component: MainPageComponent },
   {
@@ -29,7 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class PagesRoutingModule {}
