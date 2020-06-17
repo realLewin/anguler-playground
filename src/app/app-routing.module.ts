@@ -17,6 +17,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'rxjs',
+    loadChildren: () =>
+      import(`./rxjs-doc/rxjs-doc.module`).then((m) => m.RxjsDocModule),
+  },
+  {
     path: '**',
     component: AppComponent,
   },
