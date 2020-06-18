@@ -10,7 +10,6 @@ import { FirebaseDemoV1Component } from './firebase-demo-v1.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChatComponent } from './chat/chat.component';
-import { ExampleComponent } from './example/example.component';
 
 // const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -36,7 +35,6 @@ const routes: Routes = [
     data: { authGuardPipe: onlyAllowSelf },
   },
   { path: 'chat', component: ChatComponent },
-  { path: 'example', component: ExampleComponent },
   { path: '**', component: LoginComponent },
 ];
 

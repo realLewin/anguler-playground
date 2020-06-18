@@ -1,26 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { ToastrModule } from 'ngx-toastr';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-
-// import { PagesModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-// import { AppRoutingModule } from './app-routing.module';
-import { ThemeModule } from './theme/theme.module';
-import { CoreModule } from './core/core.module';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
-import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module';
+
+import { RoutingDomeModule } from './routing-dome/routing-dome.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,18 +22,12 @@ import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule,
     AppMaterialModule,
     FlexLayoutModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     ReactiveFormsModule,
-    NgxPaginationModule,
-    // AppRoutingModule,
-    // PagesModule,
-    ThemeModule,
-    CoreModule,
     NgxAuthFirebaseUIModule.forRoot({
       apiKey: 'AIzaSyBjExABRmFUnclmMM-Ys9vDvGn9UWoQjd8',
       authDomain: 'firapp-239e2.firebaseapp.com',
@@ -50,9 +38,9 @@ import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module
       appId: '1:675058299355:web:c47b192fb68263fbd677fe',
       measurementId: 'G-TV77DGC3JT',
     }),
-    FirebaseDemoV1Module,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    RoutingDomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
