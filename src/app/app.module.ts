@@ -10,16 +10,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 // import { PagesModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './theme/theme.module';
 import { CoreModule } from './core/core.module';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
-// import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module';
+import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,7 +36,7 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
     AngularFirestoreModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     // PagesModule,
     ThemeModule,
     CoreModule,
@@ -49,8 +50,9 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
       appId: '1:675058299355:web:c47b192fb68263fbd677fe',
       measurementId: 'G-TV77DGC3JT',
     }),
-    // FirebaseDemoV1Module,
+    FirebaseDemoV1Module,
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,9 +8,19 @@ import { FirebaseDemoV1RoutingModule } from './firebase-demo-v1-routing.module';
 import { FirebaseDemoV1Component } from './firebase-demo-v1.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { ChatComponent } from './chat/chat.component';
+import { RealtimeDbComponent } from './realtime-db/realtime-db.component';
+import { ExampleComponent } from './example/example.component';
 
 @NgModule({
-  declarations: [FirebaseDemoV1Component, ProfileComponent, LoginComponent],
+  declarations: [
+    FirebaseDemoV1Component,
+    ProfileComponent,
+    LoginComponent,
+    ChatComponent,
+    RealtimeDbComponent,
+    ExampleComponent,
+  ],
   imports: [
     CommonModule,
     FirebaseDemoV1RoutingModule,
@@ -18,5 +28,6 @@ import { LoginComponent } from './login/login.component';
     FlexLayoutModule,
     ReactiveFormsModule,
   ],
+  exports: [FirebaseDemoV1Component],
 })
 export class FirebaseDemoV1Module {}

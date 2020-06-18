@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -27,6 +28,7 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatButtonModule,
     MatTableModule,
+    MatChipsModule,
   ],
   exports: [
     MatGridListModule,
@@ -40,6 +42,7 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatButtonModule,
     MatTableModule,
+    MatChipsModule,
   ],
 })
 export class AppMaterialModule {}
