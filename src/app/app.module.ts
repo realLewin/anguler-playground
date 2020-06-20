@@ -14,7 +14,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
-import { RoutingDomeModule } from './routing-dome/routing-dome.module';
+import { TourOfHeroModule } from './tour-of-hero/tour-of-hero.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +40,7 @@ import { RoutingDomeModule } from './routing-dome/routing-dome.module';
     }),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    RoutingDomeModule,
+    TourOfHeroModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

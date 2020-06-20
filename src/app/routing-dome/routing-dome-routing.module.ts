@@ -13,13 +13,6 @@ import { Page1ChildComponent } from './page1-child/page1-child.component';
 
 const routes: Routes = [
   {
-    path: 'tour-of-hero',
-    loadChildren: () =>
-      import(`./tour-of-hero/tour-of-hero.module`).then(
-        (m) => m.TourOfHeroModule
-      ),
-  },
-  {
     path: 'page1',
     component: Page1Component,
     children: [{ path: 'page1-child', component: Page1ChildComponent }],
