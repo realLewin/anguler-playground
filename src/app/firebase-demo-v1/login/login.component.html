@@ -7,14 +7,35 @@
     class="login-form"
   >
     <mat-form-field appearance="outline">
-      <input matInput formControlName="account" type="text" />
+      <mat-label>username, or email</mat-label>
+      <input
+        matInput
+        formControlName="account"
+        type="text"
+        placeholder="username, or email"
+      />
+      <mat-hint>username, or email</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <input matInput formControlName="password" type="text" />
+      <mat-label>password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        type="text"
+        placeholder="password"
+      />
+      <button mat-icon-button matSuffix (click)="hidePass = !hidePass">
+        <mat-icon>{{ hidePass ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-hint>password</mat-hint>
     </mat-form-field>
-    <div>
-      <button mat-stroked-button type="submit">Log in</button>
-      <button mat-stroked-button>Sign up</button>
+    <div fxLayout="row" fxFill>
+      <button mat-stroked-button type="submit" fxFlex="50%" class="form-button">
+        Log in
+      </button>
+      <button mat-stroked-button fxFlex="50%" class="form-button">
+        Sign up
+      </button>
     </div>
   </form>
 </div>

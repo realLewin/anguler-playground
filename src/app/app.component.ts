@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<app-tour-of-hero></app-tour-of-hero>`,
+  template: `<app-firebase-demo-v1></app-firebase-demo-v1>`,
 })
 export class AppComponent {}

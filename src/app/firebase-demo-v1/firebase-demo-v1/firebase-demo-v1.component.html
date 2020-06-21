@@ -1,0 +1,56 @@
+<div fxLayout="column" fxFill>
+  <mat-toolbar fxFlex="5" fxLayout="row">
+    <div fxFlex="15" fxLayoutAlign="start">
+      <button mat-icon-button (click)="sidenav.open()">
+        <mat-icon>list</mat-icon>
+      </button>
+    </div>
+    <div fxFlex="70" fxLayoutAlign="center">
+      <button mat-icon-button>
+        <mat-icon>group_work</mat-icon>
+      </button>
+    </div>
+    <div fxFlex="15" fxLayoutAlign="end">
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>notifications_active</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container (backdropClick)="closeNav()" fxFlex="95">
+    <mat-sidenav
+      #sidenav
+      (keydown.escape)="closeNav()"
+      disableClose
+      class="side-nav"
+    >
+      <mat-selection-list [multiple]="false">
+        <mat-list-option routerLink="home" (click)="closeNav()">
+          <mat-icon matListIcon>home</mat-icon>
+          Home
+        </mat-list-option>
+        <mat-list-option routerLink="login" (click)="closeNav()">
+          <mat-icon matListIcon>login</mat-icon>
+          Login
+        </mat-list-option>
+        <mat-list-option routerLink="profile/3" (click)="closeNav()">
+          <mat-icon matListIcon>account_circle</mat-icon>
+          Profile
+        </mat-list-option>
+        <mat-list-option routerLink="chat" (click)="closeNav()">
+          <mat-icon matListIcon>chat</mat-icon>
+          Chat
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="root">
+      <mat-divider></mat-divider>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  hidePass: boolean = true;
   error: string = null;
   constructor(
     private fb: FormBuilder,
