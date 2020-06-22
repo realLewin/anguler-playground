@@ -1,3 +1,9 @@
+.root {
+  margin-top: 4px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 50px;
+}
 .backPic {
   background-image: url("https://media.moddb.com/images/downloads/1/190/189972/pter.jpg");
   background-size: cover;

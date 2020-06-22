@@ -7,6 +7,7 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./firebase-demo-v1.component.css'],
 })
 export class FirebaseDemoV1Component implements OnInit {
+  position = { x: 0, y: 0 };
   @ViewChild('sidenav') sidenav: MatSidenav;
   constructor() {}
 
@@ -14,5 +15,8 @@ export class FirebaseDemoV1Component implements OnInit {
 
   closeNav() {
     this.sidenav.close();
+  }
+  updatePos() {
+    this.position = { x: 0, y: 0 };
   }
 }

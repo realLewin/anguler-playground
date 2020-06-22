@@ -6,12 +6,21 @@ import { ProfileComponent } from './profile/profile.component';
 import { ChatComponent } from './chat/chat.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { WritePostComponent } from './write-post/write-post.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: MainPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'write-post', component: WritePostComponent },
+  { path: 'post-detail', component: PostDetailComponent },
+  {
+    path: 'setting',
+    loadChildren: () =>
+      import(`./setting/settings.module`).then((m) => m.SettingsModule),
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

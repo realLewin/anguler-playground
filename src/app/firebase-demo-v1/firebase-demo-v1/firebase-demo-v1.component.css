@@ -1,9 +1,6 @@
 .side-nav {
   width: 20%;
 }
-.root {
-  margin-top: 4px;
-  margin-left: 32px;
-  margin-right: 32px;
-  margin-bottom: 50px;
+.drag-home {
+  z-index: 2;
 }
