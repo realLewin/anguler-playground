@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {
+  redirectUnauthorizedTo,
+  AngularFireAuthGuard,
+  canActivate,
+  redirectLoggedInTo,
+} from '@angular/fire/auth-guard';
 
-import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChatComponent } from './chat/chat.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -9,17 +14,45 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { WritePostComponent } from './write-post/write-post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 
+const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['home']);
+const redirectLoggedUserTo = () => redirectLoggedInTo(['home']);
+
 const routes: Routes = [
   { path: 'home', component: MainPageComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'profile/:id', component: ProfileComponent },
-  { path: 'chat', component: ChatComponent },
-  { path: 'write-post', component: WritePostComponent },
-  { path: 'post-detail', component: PostDetailComponent },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import(`./login/login.module`).then((m) => m.LoginModule),
+    // ...canActivate(redirectLoggedUserTo),
+  },
+  {
+    path: 'profile/:id',
+    component: ProfileComponent,
+    // canActivate: [AngularFireAuthGuard],
+    // data: {
+    //   authGuardPipe: redirectUnauthorizedToHome,
+    // },
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
+    // ...canActivate(redirectUnauthorizedToHome),
+  },
+  {
+    path: 'write-post',
+    component: WritePostComponent,
+    // ...canActivate(redirectUnauthorizedToHome),
+  },
+  {
+    path: 'post-detail',
+    component: PostDetailComponent,
+    // ...canActivate(redirectUnauthorizedToHome),
+  },
   {
     path: 'setting',
     loadChildren: () =>
       import(`./setting/settings.module`).then((m) => m.SettingsModule),
+    // ...canActivate(redirectUnauthorizedToHome),
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

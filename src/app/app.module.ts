@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
@@ -32,6 +33,7 @@ import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     FirebaseDemoV1Module,
+    AngularFireAuthGuardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

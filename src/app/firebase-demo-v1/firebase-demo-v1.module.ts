@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FirebaseDemoV1RoutingModule } from './firebase-demo-v1-routing.module';
 import { FirebaseDemoV1Component } from './firebase-demo-v1/firebase-demo-v1.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 import { ExampleComponent } from './example/example.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -21,7 +20,6 @@ import { NotificationOverlayComponent } from './notification-overlay/notificatio
   declarations: [
     FirebaseDemoV1Component,
     ProfileComponent,
-    LoginComponent,
     ChatComponent,
     ExampleComponent,
     PageNotFoundComponent,

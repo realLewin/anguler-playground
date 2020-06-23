@@ -7,3 +7,9 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.root {
+  margin-top: 4px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 50px;
+}

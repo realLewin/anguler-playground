@@ -1,0 +1,38 @@
+<div>
+  <mat-accordion [multi]="isMulti">
+    <mat-expansion-panel expanded="true" (opened)="isDisabled = true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal Infomation
+        </mat-panel-title>
+        <mat-panel-description>
+          Please complete this section for better experience
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row">
+        <div fxFlex="20"></div>
+        <app-signup-info
+          fxFlex="60"
+          (onFormOneSubmitEvent)="controlPanelTwo($event); panelTwo.open()"
+        ></app-signup-info>
+        <div fxFlex="20"></div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel #panelTwo [disabled]="isDisabled">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Setup Account
+        </mat-panel-title>
+        <mat-panel-description>
+          Complete this section then you can sign in
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row" fxFill>
+        <div fxFlex="20"></div>
+        <app-signup-account fxFlex="60"></app-signup-account>
+        <div fxFlex="20"></div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <button (click)="logInfo()">Test</button>
+</div>
