@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
+import { Info } from '../models/info';
+import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -9,46 +12,66 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  hidePass: boolean = true;
+  formInfo: Info[] = [];
+  isShowPass: boolean = false;
   error: string = null;
+  dialogRef: MatDialogRef<any>;
   constructor(
     private fb: FormBuilder,
-    private afa: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private _login: LoginService,
+    private dialog: MatDialog
   ) {}
 
-  loginForm: FormGroup = this.fb.group({ account: [''], password: [''] });
+  loginForm: FormGroup = this.fb.group({
+    account: ['', Validators.email],
+    password: ['', Validators.minLength(10)],
+  });
 
-  async submitForm() {
-    let resp;
-    try {
-      resp = await this.afa.signInWithEmailAndPassword(
-        this.loginForm.get('account').value,
-        this.loginForm.get('password').value
-      );
-    } catch (error) {
-      console.log(error.message);
-      this.error = error.message;
-    }
+  submitForm() {
+    //process form information
+    this.processForm();
+    //add form info to the service
+    this.addInfo();
+    //login user
+    this.login();
+  }
 
-    const uid = resp.user.uid;
-    this.router.navigate([`firebase-demo-v1/profile/${uid}`]);
+  processForm() {
+    this.formInfo.push({
+      name: 'account',
+      value: this.loginForm.get('account').value,
+    });
+    this.formInfo.push({
+      name: 'password',
+      value: this.loginForm.get('password').value,
+    });
+  }
 
-    //----------------sign up----------------
-    // try {
-    //   this.afa.createUserWithEmailAndPassword(
-    //     this.loginForm.get('account').value,
-    //     this.loginForm.get('password').value
-    //   );
-    // } catch (error) {
-    //   console.log(error.message);
-    //   this.error = error.message;
-    // }
+  addInfo() {
+    this._login.addInfo(this.formInfo);
+  }
 
-    console.log(
-      `Your account: ${this.loginForm.get('account').value}, password: ${
-        this.loginForm.get('password').value
-      }`
-    );
+  login() {
+    this.openDialog();
+    this._login.login().subscribe((m) => {
+      if (m) {
+        setTimeout(() => {
+          this.dialogRef.close();
+          this.router.navigate(['/home']);
+        }, 1000);
+      } else {
+        this.dialogRef.close();
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+  openDialog() {
+    this.dialogRef = this.dialog.open(SignupDialogComponent, {
+      width: '200px',
+      height: '200px',
+      hasBackdrop: true,
+      disableClose: true,
+    });
   }
 }
