@@ -3,6 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Info } from '../models/info';
 import { SignupAccountService } from '../services/signup-account.service';
 import { SignupService } from '../services/signup.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
+import { Router } from '@angular/router';
+import { ResultDialogComponent } from '../result-dialog/result-dialog.component';
+import { Result } from '../models/signup-result';
 
 @Component({
   selector: 'app-signup-account',
@@ -16,11 +21,23 @@ export class SignupAccountComponent implements OnInit {
   isShowPass: boolean = false;
   //store the form info
   formInfo: Info[] = [];
+  //the sign up status
+  // isSuccess: Observable<boolean> = of(false);
+  isSuccess: boolean;
+  dialogRef: MatDialogRef<any>;
+  resultDialogRef: MatDialogRef<any>;
+  signupResult: Result = {
+    isSuccess: false,
+    success: 'Success',
+    failed: 'Failed',
+  };
 
   constructor(
     private fb: FormBuilder,
     private _signupAccount: SignupAccountService,
-    private _signup: SignupService
+    private _signup: SignupService,
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,9 +53,14 @@ export class SignupAccountComponent implements OnInit {
     this._signupAccount.addInfo(this.formInfo);
     console.log('form two submitted!');
     this._signup.addFormData();
-    //test for getting form info
-    // this._signupAccount.getInfo().subscribe((m) => console.log(m));
-    this._signup.getAllInfo().subscribe((m) => console.log(m));
+    this.openDialog();
+    const ob = this._signup.processSignup();
+    ob.subscribe((m) => {
+      this.signupResult.isSuccess = m;
+      setTimeout(() => {
+        this.dialogRef.close();
+      }, 1000);
+    });
   }
   processFormData() {
     this.formInfo.push({
@@ -50,11 +72,28 @@ export class SignupAccountComponent implements OnInit {
       value: this.accountForm.get('password').value,
     });
   }
+  //first dialog to wait for sign up process
+  openDialog() {
+    this.dialogRef = this.dialog.open(SignupDialogComponent, {
+      width: '200px',
+      height: '200px',
+      hasBackdrop: true,
+      disableClose: true,
+    });
+    //after succeed sign up, open the result dialog
+    this.dialogRef.afterClosed().subscribe((m) =>
+      setTimeout(() => {
+        this.openResultDialog();
+      }, 500)
+    );
+  }
+  //open the result dialog
+  openResultDialog() {
+    this.resultDialogRef = this.dialog.open(ResultDialogComponent, {
+      width: '400px',
+      height: '400px',
+      hasBackdrop: true,
+      data: this.signupResult,
+    });
+  }
 }
-
-// console.log(`\t
-//   email: ${this.accountForm.get('email').value}\n\t
-//   pass: ${this.accountForm.get('password').value}\n\t`);
-
-// console.log(typeof this.accountForm.get('email').value); //string
-// console.log(typeof this.accountForm.get('password').value); //string

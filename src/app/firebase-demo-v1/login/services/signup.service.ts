@@ -35,10 +35,26 @@ export class SignupService implements OnInit {
   getAllInfo(): Observable<Info[]> {
     return of(this.signupInfo);
   }
-  processSignup() {
-    this.auth.createUserWithEmailAndPassword(
-      this.signupInfo[5].value,
-      this.signupInfo[6].value
-    );
+  processSignup(): Observable<boolean> {
+    try {
+      // const userCredential =
+      this.auth.createUserWithEmailAndPassword(
+        this.signupInfo.find((e) => e.name === 'email').value,
+        this.signupInfo.find((e) => e.name === 'password').value
+      );
+      return of(true);
+      // userCredential
+      //   .then((value) => {
+      //     console.log('signup success');
+      //     return of(true);
+      //   })
+      //   .catch((reason) => {
+      //     console.log(`rejected because ${reason}`);
+      //     return of(false);
+      //   });
+    } catch (error) {
+      console.log(error);
+      return of(false);
+    }
   }
 }

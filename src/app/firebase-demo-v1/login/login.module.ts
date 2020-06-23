@@ -12,9 +12,20 @@ import { MainComponent } from './main/main.component';
 import { StepperFormComponent } from './stepper-form/stepper-form.component';
 import { SignupInfoComponent } from './signup-info/signup-info.component';
 import { SignupAccountComponent } from './signup-account/signup-account.component';
+import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
+import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, MainComponent, StepperFormComponent, SignupInfoComponent, SignupAccountComponent],
+  declarations: [
+    LoginComponent,
+    SignupComponent,
+    MainComponent,
+    StepperFormComponent,
+    SignupInfoComponent,
+    SignupAccountComponent,
+    SignupDialogComponent,
+    ResultDialogComponent,
+  ],
   imports: [
     CommonModule,
     LoginRoutingModule,
@@ -23,5 +34,6 @@ import { SignupAccountComponent } from './signup-account/signup-account.componen
     FormsModule,
     ReactiveFormsModule,
   ],
+  entryComponents: [SignupDialogComponent],
 })
 export class LoginModule {}

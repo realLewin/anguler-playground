@@ -13,5 +13,4 @@ export class SignupComponent {
     this.isDisabled = !event;
     console.log('works!');
   }
-  logInfo() {}
 }
