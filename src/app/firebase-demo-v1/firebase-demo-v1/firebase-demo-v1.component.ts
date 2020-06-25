@@ -7,11 +7,16 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./firebase-demo-v1.component.css'],
 })
 export class FirebaseDemoV1Component implements OnInit {
+  isShowToolbar: boolean = true;
   position = { x: 0, y: 0 };
   @ViewChild('sidenav') sidenav: MatSidenav;
-  constructor() {}
+  constructor() {
+    console.log('cons work');
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('init work');
+  }
 
   closeNav() {
     this.sidenav.close();

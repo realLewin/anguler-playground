@@ -1,5 +1,5 @@
 <div fxLayout="column" fxFill>
-  <mat-toolbar fxFlex="5" fxLayout="row">
+  <mat-toolbar fxFlex="5" fxLayout="row" *ngIf="isShowToolbar">
     <div fxFlex="15" fxLayoutAlign="start">
       <button mat-icon-button (click)="sidenav.open()">
         <mat-icon>list</mat-icon>
@@ -36,7 +36,7 @@
       class="side-nav"
     >
       <mat-selection-list [multiple]="false">
-        <mat-list-option routerLink="home" (click)="closeNav()">
+        <mat-list-option routerLink="" (click)="closeNav()">
           <mat-icon matListIcon>home</mat-icon>
           Home
         </mat-list-option>

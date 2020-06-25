@@ -1,65 +1,85 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {
   redirectUnauthorizedTo,
-  AngularFireAuthGuard,
   canActivate,
   redirectLoggedInTo,
 } from '@angular/fire/auth-guard';
 
 import { ProfileComponent } from './profile/profile.component';
-import { ChatComponent } from './chat/chat.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { WritePostComponent } from './write-post/write-post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
-const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['home']);
-const redirectLoggedUserTo = () => redirectLoggedInTo(['home']);
+const redirectUnauthorizedToWelcome = () => redirectUnauthorizedTo(['welcome']);
+const redirectLoggedUserToHome = () => redirectLoggedInTo(['']);
 
 const routes: Routes = [
-  { path: 'home', component: MainPageComponent },
+  {
+    path: 'welcome',
+    component: WelcomePageComponent,
+    ...canActivate(redirectLoggedUserToHome),
+  },
   {
     path: 'login',
     loadChildren: () =>
       import(`./login/login.module`).then((m) => m.LoginModule),
-    // ...canActivate(redirectLoggedUserTo),
+    ...canActivate(redirectLoggedUserToHome),
   },
   {
-    path: 'profile/:id',
-    component: ProfileComponent,
+    path: '',
+    component: MainPageComponent,
+    pathMatch: 'full',
+    ...canActivate(redirectUnauthorizedToWelcome),
+  },
+  {
+    path: '',
+    ...canActivate(redirectUnauthorizedToWelcome),
     // canActivate: [AngularFireAuthGuard],
     // data: {
-    //   authGuardPipe: redirectUnauthorizedToHome,
+    //   authGuardPipe: redirectUnauthorizedToWelcome,
     // },
+    children: [
+      // {
+      //   path: 'home',
+      //   component: MainPageComponent,
+      // },
+      {
+        path: 'profile/:id',
+        component: ProfileComponent,
+      },
+      {
+        path: 'chat',
+        loadChildren: () =>
+          import(`./chat/chat.module`).then((m) => m.ChatModule),
+      },
+      {
+        path: 'write-post',
+        component: WritePostComponent,
+      },
+      {
+        path: 'post-detail',
+        component: PostDetailComponent,
+      },
+      {
+        path: 'setting',
+        loadChildren: () =>
+          import(`./setting/settings.module`).then((m) => m.SettingsModule),
+      },
+    ],
   },
-  {
-    path: 'chat',
-    component: ChatComponent,
-    // ...canActivate(redirectUnauthorizedToHome),
-  },
-  {
-    path: 'write-post',
-    component: WritePostComponent,
-    // ...canActivate(redirectUnauthorizedToHome),
-  },
-  {
-    path: 'post-detail',
-    component: PostDetailComponent,
-    // ...canActivate(redirectUnauthorizedToHome),
-  },
-  {
-    path: 'setting',
-    loadChildren: () =>
-      import(`./setting/settings.module`).then((m) => m.SettingsModule),
-    // ...canActivate(redirectUnauthorizedToHome),
-  },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: true,
+      // preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class FirebaseDemoV1RoutingModule {}

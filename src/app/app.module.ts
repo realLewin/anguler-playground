@@ -13,7 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
-import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+// import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module';
 
@@ -29,11 +29,11 @@ import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     ReactiveFormsModule,
-    NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig),
+    // NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    FirebaseDemoV1Module,
     AngularFireAuthGuardModule,
+    FirebaseDemoV1Module,
   ],
   providers: [],
   bootstrap: [AppComponent],

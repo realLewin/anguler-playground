@@ -1,0 +1,45 @@
+<div fxLayout="column" fxFill>
+  <mat-form-field appearance="outline">
+    <mat-label>Your message</mat-label>
+    <input matInput type="text" />
+  </mat-form-field>
+  <h1>{{ messages.id }}, {{ messages.isReverse }}, {{ messages.message }}</h1>
+  <div fxFill>
+    <button mat-stroked-button (click)="sendMes()">
+      Send
+    </button>
+    <button mat-stroked-button (click)="getMes()">Get</button>
+  </div>
+</div>
+
+<!-- <div class="root" fxLayout="column">
+  <div fxFlex="90">
+    <mat-list role="list">
+      <mat-list-item
+        role="listitem"
+        *ngFor="let i of [0, 1, 2, 3, 4, 5]"
+        [fxLayout]="getMessage(i).isReverse ? 'row-reverse' : 'row'"
+      >
+        <mat-icon [style.color]="'pink'" *ngIf="!getMessage(i).isReverse">
+          done
+        </mat-icon>
+        <mat-chip-list>
+          <mat-chip color="accent">{{ getMessage(i).message }}</mat-chip>
+        </mat-chip-list>
+        <mat-icon [style.color]="'pink'" *ngIf="getMessage(i).isReverse">
+          done
+        </mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div fxLayoutAlign="center" fxFlex="10">
+    <mat-form-field fxFill appearance="outline">
+      <mat-label>message to send</mat-label>
+      <input matInput placeholder="message..." />
+      <button mat-icon-button matSuffix>
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div> -->

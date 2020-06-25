@@ -58,7 +58,7 @@ export class LoginComponent {
       if (m) {
         setTimeout(() => {
           this.dialogRef.close();
-          this.router.navigate(['/home']);
+          this.router.navigate(['']);
         }, 1000);
       } else {
         this.dialogRef.close();
