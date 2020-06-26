@@ -1,5 +1,5 @@
 export interface Message {
-  id: number;
-  isReverse: boolean;
+  user: string[];
+  timestamp: string;
   message: string;
 }

@@ -3,12 +3,13 @@
     <mat-label>Your message</mat-label>
     <input matInput type="text" />
   </mat-form-field>
-  <h1>{{ messages.id }}, {{ messages.isReverse }}, {{ messages.message }}</h1>
   <div fxFill>
     <button mat-stroked-button (click)="sendMes()">
       Send
     </button>
-    <button mat-stroked-button (click)="getMes()">Get</button>
+    <button mat-stroked-button (click)="setMes()">Set</button>
+    <button mat-stroked-button (click)="updateMes()">update</button>
+    <button mat-stroked-button (click)="deleteMes()">delete</button>
   </div>
 </div>
 

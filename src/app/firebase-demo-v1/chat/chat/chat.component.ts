@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 import { Message } from '../models/message';
-import { SendMessageService } from '../services/send-message.service';
 
 @Component({
   selector: 'app-chat',
@@ -8,27 +9,18 @@ import { SendMessageService } from '../services/send-message.service';
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
-  // messages: Message[] = MESSAGES;
-  messages: Message = {
-    id: 1,
-    isReverse: true,
-    message: 'hello from lewin',
-  };
+  items: Observable<Message[]>;
+  itemRef: AngularFireList<Message>;
+  itemId: string;
 
-  constructor(private _sendMes: SendMessageService) {}
+  constructor(private db: AngularFireDatabase) {
+    this.itemRef = this.db.list<Message>('Items');
+    this.items = this.itemRef.valueChanges();
+  }
   ngOnInit() {}
 
-  sendMes() {
-    this._sendMes.addMessage();
-  }
-
-  getMes() {
-    this._sendMes.messagesRef.on('value', (snapshot) => {
-      this.messages = snapshot.val();
-    });
-  }
-
-  // getMessage(index: number): Message {
-  //   return this.messages.find((e) => e.id === index);
-  // }
+  sendMes() {}
+  updateMes() {}
+  setMes() {}
+  deleteMes() {}
 }

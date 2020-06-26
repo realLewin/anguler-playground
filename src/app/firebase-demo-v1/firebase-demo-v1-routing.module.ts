@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {
+  AngularFireAuthGuard,
   redirectUnauthorizedTo,
   canActivate,
   redirectLoggedInTo,
 } from '@angular/fire/auth-guard';
+import { map } from 'rxjs/operators';
 
 import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -15,6 +17,8 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 const redirectUnauthorizedToWelcome = () => redirectUnauthorizedTo(['welcome']);
 const redirectLoggedUserToHome = () => redirectLoggedInTo(['']);
+const onlyAllowSelf = (next) =>
+  map((user) => !!user && (user as any).uid === next.params.id);
 
 const routes: Routes = [
   {
@@ -32,24 +36,20 @@ const routes: Routes = [
     path: '',
     component: MainPageComponent,
     pathMatch: 'full',
-    ...canActivate(redirectUnauthorizedToWelcome),
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: redirectUnauthorizedToWelcome,
+    },
+  },
+  {
+    path: 'profile/:id',
+    component: ProfileComponent,
+    ...canActivate(onlyAllowSelf),
   },
   {
     path: '',
     ...canActivate(redirectUnauthorizedToWelcome),
-    // canActivate: [AngularFireAuthGuard],
-    // data: {
-    //   authGuardPipe: redirectUnauthorizedToWelcome,
-    // },
     children: [
-      // {
-      //   path: 'home',
-      //   component: MainPageComponent,
-      // },
-      {
-        path: 'profile/:id',
-        component: ProfileComponent,
-      },
       {
         path: 'chat',
         loadChildren: () =>
@@ -64,9 +64,21 @@ const routes: Routes = [
         component: PostDetailComponent,
       },
       {
+        path: 'add',
+        loadChildren: () =>
+          import(`./add-friends/add-friends.module`).then(
+            (m) => m.AddFriendsModule
+          ),
+      },
+      {
         path: 'setting',
         loadChildren: () =>
           import(`./setting/settings.module`).then((m) => m.SettingsModule),
+      },
+      {
+        path: 'logout',
+        loadChildren: () =>
+          import(`./logout/logout.module`).then((m) => m.LogoutModule),
       },
     ],
   },
@@ -76,21 +88,13 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      enableTracing: true,
+      // enableTracing: true,
       // preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
 })
 export class FirebaseDemoV1RoutingModule {}
-
-// import { map } from 'rxjs/operators';
-// import {
-//   AngularFireAuthGuard,
-//   // redirectUnauthorizedTo,
-//   canActivate,
-// } from '@angular/fire/auth-guard';
-// const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
 // const redirectToProfile = () =>
 //   map((user) =>
@@ -99,20 +103,3 @@ export class FirebaseDemoV1RoutingModule {}
 
 // const onlyAllowSelf = (next) =>
 //   map((user) => (!!user && next.params.id == (user as any).uid) || ['login']);
-
-// const routes: Routes = [
-//   { path: '', component: FirebaseDemoV1Component },
-//   {
-//     path: 'login',
-//     component: LoginComponent,
-//     ...canActivate(redirectToProfile),
-//   },
-//   {
-//     path: 'profile/:id',
-//     component: ProfileComponent,
-//     canActivate: [AngularFireAuthGuard],
-//     data: { authGuardPipe: onlyAllowSelf },
-//   },
-//   { path: 'chat', component: ChatComponent },
-//   { path: '**', component: LoginComponent },
-// ];

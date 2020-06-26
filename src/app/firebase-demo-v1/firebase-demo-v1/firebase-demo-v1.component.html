@@ -17,7 +17,7 @@
       </button>
     </div>
     <div fxFlex="15" fxLayoutAlign="end">
-      <button mat-icon-button routerLink="profile/3">
+      <button mat-icon-button (click)="routeProfile()">
         <mat-icon>account_circle</mat-icon>
       </button>
       <button mat-icon-button>
@@ -44,13 +44,13 @@
           <mat-icon matListIcon>create</mat-icon>
           Write Post
         </mat-list-option>
-        <mat-list-option routerLink="login" (click)="closeNav()">
-          <mat-icon matListIcon>login</mat-icon>
-          Login
-        </mat-list-option>
-        <mat-list-option routerLink="profile/3" (click)="closeNav()">
+        <mat-list-option (click)="closeNav(); routeProfile()">
           <mat-icon matListIcon>account_circle</mat-icon>
           Profile
+        </mat-list-option>
+        <mat-list-option routerLink="add" (click)="closeNav()">
+          <mat-icon matListIcon>person_add</mat-icon>
+          Add
         </mat-list-option>
         <mat-list-option routerLink="chat" (click)="closeNav()">
           <mat-icon matListIcon>chat</mat-icon>
@@ -59,6 +59,10 @@
         <mat-list-option routerLink="setting" (click)="closeNav()">
           <mat-icon matListIcon>settings</mat-icon>
           Settings
+        </mat-list-option>
+        <mat-list-option routerLink="logout" (click)="closeNav()">
+          <mat-icon matListIcon>reply</mat-icon>
+          Log out
         </mat-list-option>
       </mat-selection-list>
     </mat-sidenav>

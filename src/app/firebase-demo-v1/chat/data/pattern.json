@@ -1,8 +1,30 @@
 {
   "message": {
-    "id": 1,
-    "message": "hello",
-    "form": "user.uid",
-    "to": "user.uid"
+    "uniqueId": {
+      "user": ["lewin.uid", "jenny.uid"],
+      "timestamp": "string",
+      "message": "hello"
+    },
+    "uniqueIdtwo": {}
+  },
+  "user": {
+    "lewin.uid": {
+      "name": "lewin",
+      "contacts": {
+        "jenny.uid": "true"
+      }
+    },
+    "jenny.uid": {
+      "name": "jenny",
+      "contacts": {
+        "lewin.uid": "true"
+      }
+    },
+    "lucy.uid": {
+      "name": "lucy",
+      "contacts": {
+        "lewin.uid": "true"
+      }
+    }
   }
 }
