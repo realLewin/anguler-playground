@@ -1,0 +1,31 @@
+{
+  "messages": {
+    "messageUid": {
+      "from": "lewin.uid",
+      "to": "jenny.uid",
+      "messageOne": {
+        "comtent": "hello",
+        "timestamp": "string"
+      }
+    },
+
+    "uniqueId": {
+      "user": ["lewin.uid", "jenny.uid"],
+      "timestamp": "string",
+      "message": "hello"
+    }
+  },
+  "users": {
+    "lewin.uid": {
+      "name": "walter lewin",
+      "email": "sss@ss.com",
+      "gender": "boy",
+      "birthday": "some string",
+      "contacts": {
+        "jenny.uid": "true",
+        "lucy.uid": "pending",
+        "tril.uid": "blocked"
+      }
+    }
+  }
+}

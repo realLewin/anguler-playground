@@ -33,6 +33,13 @@ const routes: Routes = [
     ...canActivate(redirectLoggedUserToHome),
   },
   {
+    path: 'example',
+    loadChildren: () =>
+      import(`./example/firestore/firestore.module`).then(
+        (m) => m.FirestoreModule
+      ),
+  },
+  {
     path: '',
     component: MainPageComponent,
     pathMatch: 'full',
@@ -63,13 +70,13 @@ const routes: Routes = [
         path: 'post-detail',
         component: PostDetailComponent,
       },
-      {
-        path: 'add',
-        loadChildren: () =>
-          import(`./add-friends/add-friends.module`).then(
-            (m) => m.AddFriendsModule
-          ),
-      },
+      // {
+      //   path: 'add',
+      //   loadChildren: () =>
+      //     import(`./add-friends/add-friends.module`).then(
+      //       (m) => m.AddFriendsModule
+      //     ),
+      // },
       {
         path: 'setting',
         loadChildren: () =>
