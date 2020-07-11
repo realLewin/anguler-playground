@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<app-firebase-demo-v1></app-firebase-demo-v1>`,
+  template: `<app-mytest></app-mytest>`,
 })
 export class AppComponent {}

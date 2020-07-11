@@ -15,7 +15,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 // import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
-import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module';
+import { MyjavaServerModule } from './myjava-server/myjava-server.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +33,7 @@ import { FirebaseDemoV1Module } from './firebase-demo-v1/firebase-demo-v1.module
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireAuthGuardModule,
-    FirebaseDemoV1Module,
+    MyjavaServerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
