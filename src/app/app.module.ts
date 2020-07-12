@@ -15,7 +15,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 // import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
-import { MyjavaServerModule } from './myjava-server/myjava-server.module';
+import { SimpleTwitterModule } from './simple-twitter/simple-twitter.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +33,7 @@ import { MyjavaServerModule } from './myjava-server/myjava-server.module';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireAuthGuardModule,
-    MyjavaServerModule,
+    SimpleTwitterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

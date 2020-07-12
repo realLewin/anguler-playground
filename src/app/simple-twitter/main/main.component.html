@@ -1,0 +1,35 @@
+<div class="root main" fxLayout="row">
+  <div fxFlex="20"></div>
+  <div fxFlex="60" fxLayoutAlign="center" fxLayout="column">
+    <form fxLayout="column" [formGroup]="postForm">
+      <mat-form-field appearance="outline">
+        <mat-label>title</mat-label>
+        <input matInput type="text" formControlName="title" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>content</mat-label>
+        <textarea
+          matInput
+          cols="50"
+          rows="4"
+          formControlName="content"
+          required
+        ></textarea>
+      </mat-form-field>
+    </form>
+
+    <button mat-button (click)="send()">Send Post</button>
+    <button mat-button (click)="log()">Log Post</button>
+    <div fxLayout="row">
+      <button mat-button (click)="fetch()" fxFlex="50">Fetch Post</button>
+      <button mat-button (click)="clear()" fxFlex="50">Clear Post</button>
+    </div>
+    <div class="body" fxLayout="column">
+      <mat-divider></mat-divider>
+      <h1 class="title">title</h1>
+      <mat-divider></mat-divider>
+      <h3 class="content">content</h3>
+    </div>
+  </div>
+  <div fxFlex="20"></div>
+</div>

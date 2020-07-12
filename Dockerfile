@@ -1,7 +1,7 @@
-FROM node:13.3.0 AS compile-image
+FROM node:alpine
 
-WORKDIR /opt/ng
-COPY .npmrc package.json package-lock ./
+WORKDIR /usr/app
+COPY package.json ./
 RUN npm install
 
 ENV PATH="./node_modules/.bin:$PATH" 

@@ -1,0 +1,14 @@
+.main {
+  padding-top: 64px;
+}
+.body {
+  margin-top: 32px;
+}
+.title {
+  margin-top: 16px;
+  margin-left: 32px;
+}
+.content {
+  margin-top: 8px;
+  margin-left: 32px;
+}
