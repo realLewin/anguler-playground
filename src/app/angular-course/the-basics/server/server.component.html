@@ -1,0 +1,20 @@
+<!-- two way data binding -->
+<input [(ngModel)]="serverName" />
+<p>{{ serverName }}</p>
+<!-- the property binding -->
+<!-- event binding -->
+<button
+  class="btn btn-primary"
+  [disabled]="!isAllowServer"
+  (click)="onCreateServer()"
+>
+  Allow server
+</button>
+<!-- the string interpolation -->
+<h1>Your number is {{ number }}</h1>
+<!-- <h1>Your number is {{ getNumber() }}</h1> -->
+<!-- use directive ngIf and else -->
+<p *ngIf="isExist; else el">This is exist.</p>
+<ng-template #el>
+  <p>This is not exist</p>
+</ng-template>
