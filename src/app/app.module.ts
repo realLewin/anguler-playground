@@ -15,7 +15,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 // import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
-import { AngularCourseModule } from './angular-course/angular-course.module';
+import { MaterialDocModule } from './material-doc/material-doc.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +33,7 @@ import { AngularCourseModule } from './angular-course/angular-course.module';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireAuthGuardModule,
-    AngularCourseModule,
+    MaterialDocModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

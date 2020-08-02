@@ -9,7 +9,7 @@ import { MaterialDocComponent } from './material-doc/material-doc.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OpenedDialogComponent } from './dialog/opened-dialog/opened-dialog.component';
-import { OverlayComponent } from './overlay/overlay.component';
+import { OverlayComponent } from './overlay/overlay/overlay.component';
 import { OpenedOverlayComponent } from './overlay/opened-overlay/opened-overlay.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 

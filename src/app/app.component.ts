@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<app-angular-course></app-angular-course>`,
+  template: `<app-material-doc></app-material-doc>`,
 })
 export class AppComponent {}

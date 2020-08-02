@@ -1,2 +1,14 @@
+important note about the course structure:
+I treat the `angular-course` as the course root directory,
+every course section corresponding to the `section-<number>` file,
+in the `section-<number>` file, I treat it as a seperate project,
+so I use app.module.ts for each section;
+I treat main.component.ts as the section root component;
+
 noticing course: 2.28;
 noticing course: 2.29;
+noticing course: 5.9 & 5.10 -- about view encapsulation;
+noticing course: 5.14 -- about <ng-content>;
+noticing course: 5.16 -- lifecycle hooks;
+noticing course: 5.19 -- @ContentChild;
+

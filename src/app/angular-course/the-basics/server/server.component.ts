@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 
 // Different component selector;
+// The corresponding saytax
+// <app-server></app-server>
+// <div app-server></div>
+// <div class="app-server"></div>
 @Component({
   selector: 'app-server',
   // The attribute selector:
@@ -8,6 +12,14 @@ import { Component } from '@angular/core';
   // The class selector:
   // selector: '.app-server',
   templateUrl: './server.component.html',
+  // styleUrls: ['./server.component.css'],
+  styles: [
+    `
+      h1 {
+        color: red;
+      }
+    `,
+  ],
 })
 export class ServerComponent {
   isExist: boolean = true;

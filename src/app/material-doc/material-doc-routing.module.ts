@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DialogComponent } from './dialog/dialog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { OverlayComponent } from './overlay/overlay.component';
+import { OverlayComponent } from './overlay/overlay/overlay.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 
 const routes: Routes = [

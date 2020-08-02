@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>Add new Servers or blueprints!</p>
+    <label>Server Name</label>
+    <!-- use two way data binding -->
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerName" /> -->
+    <!-- use @viewChild -->
+    <input type="text" class="form-control" #serverName />
+    <label>Server Content</label>
+    <!-- use local reference -->
+    <input type="text" class="form-control" #content />
+    <br />
+    <button class="btn btn-primary" (click)="onAddServer(content)">
+      Add Server
+    </button>
+    <button class="btn btn-primary" (click)="onAddBlueprint(content)">
+      Add Server Blueprint
+    </button>
+  </div>
+</div>
