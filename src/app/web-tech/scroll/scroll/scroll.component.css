@@ -1,0 +1,17 @@
+.screen {
+  width: 100%;
+  height: 600px;
+  align-items: center;
+}
+.fir-screen {
+  background: rgb(0, 106, 221);
+}
+.sec-screen {
+  background: rgb(255, 25, 129);
+}
+.thr-screen {
+  background: #ffdf19;
+}
+.for-screen {
+  color: #33ff00;
+}

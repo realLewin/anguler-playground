@@ -1,0 +1,14 @@
+<div class="container">
+  <app-infinite-scroll
+    (scrolled)="onScroll()"
+    style="height: 400px; overflow-y: auto;"
+  >
+    <div *ngFor="let tweet of tweetData">
+      <h1>{{ tweet }}</h1>
+    </div>
+
+    <div *ngIf="isLoading$">
+      Fetching tweets...
+    </div>
+  </app-infinite-scroll>
+</div>
