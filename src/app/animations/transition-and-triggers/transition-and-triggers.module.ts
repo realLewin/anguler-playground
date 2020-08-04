@@ -7,9 +7,11 @@ import { MainComponent } from './main/main.component';
 
 import { WildcardStateComponent } from './wildcard-state/wildcard-state.component';
 import { EnterLeaveViewComponent } from './enter-leave-view/enter-leave-view.component';
+import { IncDecInTransitionsComponent } from './inc-dec-in-transitions/inc-dec-in-transitions.component';
+import { KeyframesComponent } from './keyframes/keyframes.component';
 
 @NgModule({
-  declarations: [MainComponent, WildcardStateComponent, EnterLeaveViewComponent],
+  declarations: [MainComponent, WildcardStateComponent, EnterLeaveViewComponent, IncDecInTransitionsComponent, KeyframesComponent],
   imports: [
     CommonModule,
     TransitionAndTriggersRoutingModule,

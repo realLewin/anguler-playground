@@ -1,0 +1,11 @@
+<div>
+  <button mat-button (click)="toggle()">Toggle</button>
+</div>
+
+<div [@slideStatus]="status" class="box">
+  {{ status == "active" ? "Active" : "Inactive" }}
+</div>
+<div>
+  <button mat-button (click)="pulse()">Pulse</button>
+</div>
+<div class="box" [@pulsateAnimation]="pulseStatus"></div>

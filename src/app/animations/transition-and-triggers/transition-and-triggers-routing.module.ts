@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { WildcardStateComponent } from './wildcard-state/wildcard-state.component';
 import { EnterLeaveViewComponent } from './enter-leave-view/enter-leave-view.component';
+import { IncDecInTransitionsComponent } from './inc-dec-in-transitions/inc-dec-in-transitions.component';
+import { KeyframesComponent } from './keyframes/keyframes.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,14 @@ const routes: Routes = [
   {
     path: 'enter-leave-view',
     component: EnterLeaveViewComponent,
+  },
+  {
+    path: 'inc-dec-in-transition',
+    component: IncDecInTransitionsComponent,
+  },
+  {
+    path: 'keyframe',
+    component: KeyframesComponent,
   },
 ];
 
