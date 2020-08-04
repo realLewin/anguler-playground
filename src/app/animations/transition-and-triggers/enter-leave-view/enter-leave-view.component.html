@@ -1,0 +1,6 @@
+<div>
+  <button mat-button (click)="isShown = !isShown">Toggle</button>
+  <div *ngIf="isShown" class="demo" @flyInOut>
+    <p>hello!</p>
+  </div>
+</div>

@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<app-web-tech></app-web-tech>`,
+  template: `<app-animations></app-animations>`,
 })
 export class AppComponent {}
