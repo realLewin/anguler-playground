@@ -21,6 +21,11 @@ const routes: Routes = [
         (m) => m.IntersectionObserverModule
       ),
   },
+  {
+    path: 'carousel',
+    loadChildren: () =>
+      import(`./carousel/carousel.module`).then((m) => m.CarouselModule),
+  },
 ];
 
 @NgModule({
