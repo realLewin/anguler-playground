@@ -11,7 +11,13 @@ import { IncDecInTransitionsComponent } from './inc-dec-in-transitions/inc-dec-i
 import { KeyframesComponent } from './keyframes/keyframes.component';
 
 @NgModule({
-  declarations: [MainComponent, WildcardStateComponent, EnterLeaveViewComponent, IncDecInTransitionsComponent, KeyframesComponent],
+  declarations: [
+    MainComponent,
+    WildcardStateComponent,
+    EnterLeaveViewComponent,
+    IncDecInTransitionsComponent,
+    KeyframesComponent,
+  ],
   imports: [
     CommonModule,
     TransitionAndTriggersRoutingModule,

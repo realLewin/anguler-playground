@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.TransitionAndTriggersModule
       ),
   },
+  {
+    path: 'complex-sequences',
+    loadChildren: () =>
+      import(`./complex-sequences/complex-sequences.module`).then(
+        (m) => m.ComplexSequencesModule
+      ),
+  },
 ];
 
 @NgModule({
