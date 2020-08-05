@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-intersection-observer',
-  templateUrl: './intersection-observer.component.html',
-  styleUrls: ['./intersection-observer.component.css'],
+  selector: 'app-some-example',
+  templateUrl: './some-example.component.html',
+  styleUrls: ['./some-example.component.css'],
 })
-export class IntersectionObserverComponent implements OnInit {
+export class SomeExampleComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}

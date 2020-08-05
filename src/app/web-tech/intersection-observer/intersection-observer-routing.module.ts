@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IntersectionObserverComponent } from './intersection-observer/intersection-observer.component';
+import { MainComponent } from './main/main.component';
+import { MediumExampleComponent } from './medium-example/medium-example.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: IntersectionObserverComponent,
+    component: MainComponent,
+  },
+  {
+    path: 'example',
+    component: MediumExampleComponent,
   },
 ];
 
