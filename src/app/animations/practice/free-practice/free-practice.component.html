@@ -1,0 +1,36 @@
+<mat-divider></mat-divider>
+<div>
+  <h1>Pulse Animation</h1>
+  <button mat-button (click)="toggle()">Toggle</button>
+  <div class="pulse-box" [@pulse]="pulseState">demo</div>
+</div>
+<mat-divider></mat-divider>
+<div>
+  <h1>Use Query And Stagger</h1>
+  <button mat-button (click)="changeData(); toggle()">Toggle</button>
+  <div @queryStagger *ngIf="pulseState">
+    <div class="query-stagger" *ngFor="let data of DATA">
+      {{ data }}
+    </div>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div>
+  <h1>Use Group</h1>
+  <button mat-button (click)="changeData(); toggle()">Toggle</button>
+  <div @group *ngIf="pulseState">
+    <div class="query-stagger" *ngFor="let data of DATA">
+      {{ data }}
+    </div>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div>
+  <h1>Use Sequence</h1>
+  <button mat-button (click)="changeData(); toggle()">Toggle</button>
+  <div @sequential *ngIf="pulseState">
+    <div class="query-stagger" *ngFor="let data of DATA">
+      {{ data }}
+    </div>
+  </div>
+</div>

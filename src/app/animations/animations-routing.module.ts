@@ -21,6 +21,11 @@ const routes: Routes = [
         (m) => m.ComplexSequencesModule
       ),
   },
+  {
+    path: 'practice',
+    loadChildren: () =>
+      import(`./practice/practice.module`).then((m) => m.PracticeModule),
+  },
 ];
 
 @NgModule({
