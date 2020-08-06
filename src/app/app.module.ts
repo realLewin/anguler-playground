@@ -15,7 +15,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 // import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
-import { WebTechModule } from './web-tech/web-tech.module';
+import { NgrxModule } from './ngrx/ngrx.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +33,7 @@ import { WebTechModule } from './web-tech/web-tech.module';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireAuthGuardModule,
-    WebTechModule,
+    NgrxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
