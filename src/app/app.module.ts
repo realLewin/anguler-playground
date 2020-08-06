@@ -15,7 +15,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 // import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
-import { NgrxModule } from './ngrx/ngrx.module';
+import { AngularTestModule } from './angular-test/angular-test.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +33,7 @@ import { NgrxModule } from './ngrx/ngrx.module';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireAuthGuardModule,
-    NgrxModule,
+    AngularTestModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
