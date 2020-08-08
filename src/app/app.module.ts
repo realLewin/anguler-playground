@@ -14,8 +14,9 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 // import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
-
 import { ServiceWorkerModule } from '@angular/service-worker';
+
+import { NgrxModule } from './ngrx/ngrx.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +37,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
+    NgrxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -10,15 +10,22 @@ import { ExamplesComponent } from './examples/examples.component';
 import { CustomerReducer } from './examples/customer.reducer';
 import { CustomerAddComponent } from './examples/customer-add/customer-add.component';
 import { CustomersViewComponent } from './examples/customers-view/customers-view.component';
+import { counterReducer } from './doc/get-start/counter.reducer';
 
 @NgModule({
-  declarations: [MainComponent, ExamplesComponent, CustomerAddComponent, CustomersViewComponent],
+  declarations: [
+    MainComponent,
+    ExamplesComponent,
+    CustomerAddComponent,
+    CustomersViewComponent,
+  ],
   imports: [
     CommonModule,
     NgrxRoutingModule,
     AppMaterialModule,
     FlexLayoutModule,
-    StoreModule.forRoot({ customers: CustomerReducer }),
+    // StoreModule.forRoot({ customers: CustomerReducer }),
+    StoreModule.forRoot({ count: counterReducer }),
   ],
   exports: [MainComponent],
 })
